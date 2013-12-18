@@ -1069,7 +1069,7 @@
   }
 
 
-  function initDone() {
+  function init() {
     $('#visualize_my_data').click(handleClickVisualize);
 
     var trigger = function(cause) {
@@ -1124,20 +1124,15 @@
       };
       reader.readAsText(e.originalEvent.dataTransfer.files.item(0));
     });
+  }
 
-    // Start off with the dummy data that's in the textarea on page load.
+  $(init);
+
+  function visualize() {
     handleClickVisualize();
   }
 
-
-  function init(data) {
-    if (data) {
-      $('#data').text(data);
-    }
-    initDone();
-  }
-
   window.Cohorts = {
-    init: init
+    visualize: visualize
   };
 }());

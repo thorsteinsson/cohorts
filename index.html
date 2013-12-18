@@ -656,7 +656,9 @@ Favorite feature,Polls,11/16/12,90,35,186,153,19
   <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.min.js"></script>
   <script src="cohorts.js"></script>
   <script>
-    Cohorts.init();
+    $(function() {
+      Cohorts.visualize();
+    });
   </script>
 </body>
 </html>

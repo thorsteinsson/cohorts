@@ -1068,30 +1068,6 @@ function handleClickVisualize() {
 }
 
 
-function init() {
-  var prefix = '?resource=';
-  if (window.location.search.indexOf(prefix) == 0) {
-    var resourcePath = decodeURIComponent(
-        window.location.search.substr(prefix.length));
-    $.ajax({
-      url: resourcePath,
-      success: function(data) {
-        $('#data').text(data);
-        initDone();
-      },
-      error: function(xhr, status, error) {
-        alert('Something is wrong with your data!');
-        console.log('Something is wrong with your data!');
-        console.log(error);
-      },
-      dataType: 'text'
-    });
-  } else {
-    initDone();
-  }
-}
-
-
 function initDone() {
   $('#visualize_my_data').click(handleClickVisualize);
 
@@ -1153,4 +1129,9 @@ function initDone() {
 }
 
 
-$(document).ready(init);
+function init(data) {
+  if (data) {
+    $('#data').text(data);
+  }
+  initDone();
+}

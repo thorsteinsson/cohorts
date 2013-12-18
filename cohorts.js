@@ -18,6 +18,9 @@
   var GROUP_TYPE_COLUMN = 0;
   var GROUP_VALUE_COLUMN = 1;
   var DAY_COLUMN = 2;
+  var options = {
+    percentageFormat: '%'
+  };
 
 
   function getSelectedGroupType() {
@@ -471,7 +474,7 @@
     }
 
     // Update each legend item to match the highlighted bar
-    var format = d3.format('%');
+    var format = d3.format(options.percentageFormat);
     $.each(cohortBars, function(index, value) {
       var el = $(value);
       var stateName = el.attr('data-state-name');
@@ -1108,6 +1111,7 @@
 
   $(init);
   window.Cohorts = {
-    visualize: visualize
+    visualize: visualize,
+    options: options
   };
 }());
